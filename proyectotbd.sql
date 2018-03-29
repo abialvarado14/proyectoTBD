@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-03-2018 a las 20:35:35
+-- Tiempo de generación: 29-03-2018 a las 20:41:18
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -96,6 +96,8 @@ DELIMITER ;
 
 CREATE TABLE `proveedores` (
   `codigoProveedor` int(11) NOT NULL,
+  `nombreProveedor` varchar(20) DEFAULT NULL,
+  `apellidoProveedor` varchar(20) DEFAULT NULL,
   `rtnProveedor` int(11) DEFAULT NULL,
   `telefonoProveedor` int(11) DEFAULT NULL,
   `direccionProveedor` varchar(50) DEFAULT NULL
