@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-03-2018 a las 01:54:51
+-- Tiempo de generación: 29-03-2018 a las 20:35:35
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `proyecto_bddi`
+-- Base de datos: `proyectotbd`
 --
 
 -- --------------------------------------------------------
@@ -76,9 +76,17 @@ CREATE TABLE `productos` (
   `categoria` varchar(35) DEFAULT NULL,
   `costo` float NOT NULL,
   `descripcion` varchar(50) DEFAULT NULL,
-  `fechaExpiracion` date DEFAULT NULL,
+  `fechaExpiracion` date NOT NULL,
   `precioVenta` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Disparadores `productos`
+--
+DELIMITER $$
+CREATE TRIGGER `PRODUCTOS_AD` AFTER DELETE ON `productos` FOR EACH ROW INSERT INTO reg_productos(codigoProducto, codigoProveedor, categoria, costo, descripcion, fechaExpiracion, precioVenta) VALUES(OLD.codigoProducto, OLD.codigoProveedor, OLD.categoria, OLD.costo, OLD.descripcion, OLD.fechaExpiracion, OLD.precioVenta)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -91,6 +99,40 @@ CREATE TABLE `proveedores` (
   `rtnProveedor` int(11) DEFAULT NULL,
   `telefonoProveedor` int(11) DEFAULT NULL,
   `direccionProveedor` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reg_productos`
+--
+
+CREATE TABLE `reg_productos` (
+  `codigoProducto` int(11) NOT NULL,
+  `codigoProveedor` int(11) NOT NULL,
+  `categoria` varchar(35) DEFAULT NULL,
+  `costo` float NOT NULL,
+  `descripcion` varchar(20) DEFAULT NULL,
+  `fechaExpiracion` date NOT NULL,
+  `precioVenta` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `reg_productos`
+--
+
+INSERT INTO `reg_productos` (`codigoProducto`, `codigoProveedor`, `categoria`, `costo`, `descripcion`, `fechaExpiracion`, `precioVenta`) VALUES
+(1, 1, 'Limpieza', 3.5, 'Nada', '2018-03-29', 4.5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `usuario` varchar(20) NOT NULL,
+  `contraseña` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -126,6 +168,18 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`codigoProveedor`);
+
+--
+-- Indices de la tabla `reg_productos`
+--
+ALTER TABLE `reg_productos`
+  ADD PRIMARY KEY (`codigoProducto`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`usuario`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
