@@ -5,6 +5,7 @@
  */
 package proyecto_tbd;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,20 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setResizable(true);
+
+        Cliente c = new Cliente();
+        c.setApellidoCliente("Guayman");
+        c.setNombreCliente("Leonardo");
+        c.setRtnCliente(929292);
+        c.setTelefonoCliente(233);
+        c.setIdCliente(8282893);
+
+        
+        daoCliente dao = new daoCliente();
+        
+        dao.update(c);
+
+
     }
 
     /**
@@ -357,30 +372,30 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mi_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_iniciarActionPerformed
-    jd_sesion.setLocationRelativeTo(this);
-    jd_sesion.setVisible(true);
-    jd_sesion.setResizable(true);
+        jd_sesion.setLocationRelativeTo(this);
+        jd_sesion.setVisible(true);
+        jd_sesion.setResizable(true);
     }//GEN-LAST:event_mi_iniciarActionPerformed
 
     private void jb_entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_entrarMouseClicked
         // INICIA SESIÓN
 
-        if(jt_usuario.getText()=="user" && jt_password.getText()=="1234"){
+        if ("user".equals(jt_usuario.getText()) && "1234".equals(jt_password.getText())) {
             jf_menu.setVisible(true);
             jt_usuario.setText("");
             jt_password.setText("");
-        }else{
+        } else {
             JOptionPane.showMessageDialog(jd_sesion, "Usuario Incorrecto");
             jt_usuario.setText("");
             jt_password.setText("");
         }
-        
+
     }//GEN-LAST:event_jb_entrarMouseClicked
 
     private void jb_productoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_productoMouseClicked
         //ENTRAR A PRODUCTOS
         jf_producto.setVisible(true);
-        
+
     }//GEN-LAST:event_jb_productoMouseClicked
 
     private void jb_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_clienteMouseClicked
@@ -414,13 +429,12 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_proveedorMouseClicked
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-          
-        
-    
+
+
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jb_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_entrarActionPerformed
-       
+
     }//GEN-LAST:event_jb_entrarActionPerformed
 
     /**
@@ -488,4 +502,5 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField jt_usuario;
     private javax.swing.JMenuItem mi_iniciar;
     // End of variables declaration//GEN-END:variables
+    daoProveedor dao;
 }

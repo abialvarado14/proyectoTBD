@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Conexion {
+public class Conect {
 
     Connection cx;
     String bd = "proyecto_bddi";
@@ -35,6 +35,7 @@ public class Conexion {
             System.out.println("No se pudo cerrar conexión");
         }
     }
+    
 
     
 }

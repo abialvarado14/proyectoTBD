@@ -7,15 +7,17 @@ public class Empleados {
     String nombreEmpleado;
     String apellidoEmpleado;
     String usuario;
+    float salario;
 
     public Empleados() {
     }
 
-    public Empleados(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, String usuario) {
+    public Empleados(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, String usuario, float salario) {
         this.idEmpleado = idEmpleado;
         this.nombreEmpleado = nombreEmpleado;
         this.apellidoEmpleado = apellidoEmpleado;
         this.usuario = usuario;
+        this.salario = salario;
     }
     
     
@@ -51,6 +53,16 @@ public class Empleados {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+    
+
     
     
 }
