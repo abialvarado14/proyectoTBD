@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-03-2018 a las 05:00:13
+-- Tiempo de generación: 30-03-2018 a las 05:05:56
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -154,7 +154,7 @@ CREATE TABLE `productos` (
 -- Disparadores `productos`
 --
 DELIMITER $$
-CREATE TRIGGER `ACTUALIZA_PRODUCTOS_BU` BEFORE UPDATE ON `productos` FOR EACH ROW INSERT INTO productosactualizados(anteriorCodigoProducto, anteriorCodigoProveedor, anteriorCategoria, anteriorCosto, anteriorDescripcion, anteriorFechaExpiracion, anteriorPrecioVenta, nuevoCodigoProducto, nuevoCodigoProveedor, nuevoCategoria, nuevoCosto, nuevoDescripcion, nuevoFechaExpiracion, nuevoPrecioVenta, usuario, fechaModificacion)
+CREATE TRIGGER `ACTUALIZA_PRODUCTOS_BU` BEFORE UPDATE ON `productos` FOR EACH ROW INSERT INTO productos_actualizados(anteriorCodigoProducto, anteriorCodigoProveedor, anteriorCategoria, anteriorCosto, anteriorDescripcion, anteriorFechaExpiracion, anteriorPrecioVenta, nuevoCodigoProducto, nuevoCodigoProveedor, nuevoCategoria, nuevoCosto, nuevoDescripcion, nuevoFechaExpiracion, nuevoPrecioVenta, usuario, fechaModificacion)
 VALUES(OLD.codigoProducto, OLD.codigoProveedor, OLD.categoria, OLD.costo, OLD.descripcion, OLD.fechaExpiracion, OLD.precioVenta, NEW.codigoProducto, NEW.codigoProveedor, NEW.categoria, NEW.costo, NEW.descripcion, NEW.fechaExpiracion, NEW.precioVenta, CURRENT_USER(), NOW())
 $$
 DELIMITER ;
@@ -166,10 +166,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productosactualizados`
+-- Estructura de tabla para la tabla `productos_actualizados`
 --
 
-CREATE TABLE `productosactualizados` (
+CREATE TABLE `productos_actualizados` (
   `anteriorCodigoProducto` int(11) NOT NULL,
   `anteriorCodigoProveedor` int(11) NOT NULL,
   `anteriorCategoria` varchar(35) DEFAULT NULL,
