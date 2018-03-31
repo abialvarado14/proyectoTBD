@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Conect {
+public class Conexion {
 
     Connection cx;
     String bd = "super";
@@ -21,7 +21,7 @@ public class Conect {
             System.out.println("SE CONECTO!!");
 
         } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println("NO SE CONECTO!!");
+            System.out.println("NO SE CONECTO!");
         }
         return cx;
 
@@ -35,7 +35,6 @@ public class Conect {
             System.out.println("No se pudo cerrar conexión");
         }
     }
-    
 
     
 }
