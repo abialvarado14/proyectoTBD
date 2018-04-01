@@ -7,6 +7,7 @@ package proyecto_tbd;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -90,6 +91,21 @@ public class Inicio extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jf_venta = new javax.swing.JFrame();
         jf_factura = new javax.swing.JFrame();
+        jButton8 = new javax.swing.JButton();
+        tf_fac_codigo = new javax.swing.JTextField();
+        tf_fac_usuario = new javax.swing.JTextField();
+        tf_fac_rtnCliente = new javax.swing.JTextField();
+        tf_fac_nombreCliente = new javax.swing.JTextField();
+        tf_fac_ApellidoCliente = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        tf_fac_CantidadProductos = new javax.swing.JTextField();
+        tf_fac_Total = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         jf_inventario = new javax.swing.JFrame();
         jB_CargarInvet = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -514,15 +530,95 @@ public class Inicio extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jButton8.setText("Agregar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Código");
+
+        jLabel33.setText("Usuario");
+
+        jLabel34.setText("rtn Cliente");
+
+        jLabel35.setText("Nombre Cliente");
+
+        jLabel36.setText("Apellido Cliente");
+
+        jLabel37.setText("Cantidad Productos");
+
+        jLabel38.setText("Total");
+
         javax.swing.GroupLayout jf_facturaLayout = new javax.swing.GroupLayout(jf_factura.getContentPane());
         jf_factura.getContentPane().setLayout(jf_facturaLayout);
         jf_facturaLayout.setHorizontalGroup(
             jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_facturaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(43, 43, 43))
+            .addGroup(jf_facturaLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel38))
+                .addGap(24, 24, 24)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tf_fac_Total, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(tf_fac_CantidadProductos)
+                    .addComponent(tf_fac_codigo)
+                    .addComponent(tf_fac_usuario)
+                    .addComponent(tf_fac_rtnCliente)
+                    .addComponent(tf_fac_nombreCliente)
+                    .addComponent(tf_fac_ApellidoCliente))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         jf_facturaLayout.setVerticalGroup(
             jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jf_facturaLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fac_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
+                .addGap(18, 18, 18)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fac_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addGap(18, 18, 18)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fac_rtnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34))
+                .addGap(18, 18, 18)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fac_nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35))
+                .addGap(18, 18, 18)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fac_ApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel36))
+                .addGap(18, 18, 18)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fac_CantidadProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37))
+                .addGap(18, 18, 18)
+                .addGroup(jf_facturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fac_Total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(38, 38, 38))
         );
 
         jB_CargarInvet.setText("Cargar Inventario");
@@ -1202,6 +1298,62 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jD_usersMouseClicked
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+
+        /*
+        
+            int codigoFactura;
+            String usuario;
+            int rtnCliente;
+            String nombreCliente;
+            String apellidoCliente;
+            int cantidadProductos;
+            Date fecha;
+            double total;
+        
+         */
+        Factura f = new Factura();
+        
+                
+        //La fecha se incluye automaticamente
+        Calendar calendar = Calendar.getInstance();
+        java.sql.Date fechaSQL = new java.sql.Date(calendar.getTime().getTime());
+        
+        tf_fac_codigo.getText();
+        tf_fac_usuario.getText();
+        tf_fac_rtnCliente.getText();
+        tf_fac_nombreCliente.getText();
+        tf_fac_ApellidoCliente.getText();
+        tf_fac_CantidadProductos.getText();
+        tf_fac_Total.getText();
+        f.setCodigoFactura(Integer.parseInt(tf_fac_codigo.getText()));
+        f.setApellidoCliente(tf_fac_ApellidoCliente.getText());
+        f.setNombreCliente(tf_fac_nombreCliente.getText());
+        f.setRtnCliente(Integer.parseInt(tf_fac_rtnCliente.getText()));
+        f.setCantidadProductos(Integer.parseInt(tf_fac_CantidadProductos.getText()));
+        f.setTotal(Double.parseDouble(tf_fac_Total.getText()));
+        f.setFecha(fechaSQL);
+       
+        daoFactura dao = new daoFactura();
+
+        if (dao.create(f)) {
+            JOptionPane.showMessageDialog(this, "Se ingreso exitosamente a la base de datos");
+            tf_fac_codigo.setText("");
+            tf_fac_usuario.setText("");
+            tf_fac_rtnCliente.setText("");
+            tf_fac_nombreCliente.setText("");
+            tf_fac_ApellidoCliente.setText("");
+            tf_fac_Total.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_jButton8MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1257,6 +1409,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JDialog jD_Empleados;
     private javax.swing.JDialog jD_TablaPr;
     private javax.swing.JDialog jD_Tabla_Productos;
@@ -1287,6 +1440,13 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1349,6 +1509,13 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPasswordField jt_password;
     private javax.swing.JTextField jt_usuario;
     private javax.swing.JMenuItem mi_iniciar;
+    private javax.swing.JTextField tf_fac_ApellidoCliente;
+    private javax.swing.JTextField tf_fac_CantidadProductos;
+    private javax.swing.JTextField tf_fac_Total;
+    private javax.swing.JTextField tf_fac_codigo;
+    private javax.swing.JTextField tf_fac_nombreCliente;
+    private javax.swing.JTextField tf_fac_rtnCliente;
+    private javax.swing.JTextField tf_fac_usuario;
     // End of variables declaration//GEN-END:variables
 
 }
