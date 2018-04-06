@@ -16,7 +16,7 @@ public class daoFactura {
     public boolean create(Factura f) {
         try {
 
-            String sql = "INSERT INTO productos(codigoFacuta,usuario,rtnCliente,nombreCliente,apellidoCliente,cantidadProductos,fecha,total) VALUES(?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO facturas(codigoFactura,usuario,rtnCliente,nombreCliente,apellidoCliente,cantidadProductos,fecha,total) VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement ps = c.conectar().prepareStatement(sql);
             ps.setInt(1, f.getCodigoFactura());
             ps.setString(2, f.getUsuario());
@@ -24,7 +24,7 @@ public class daoFactura {
             ps.setString(4, f.getNombreCliente());
             ps.setString(5, f.getApellidoCliente());
             ps.setInt(6, f.getCantidadProductos());
-            ps.setDate(7, f.getFecha());
+            ps.setString(7, f.getFecha());
             ps.setDouble(8, f.getTotal());
             ps.execute();
             ps.close();
@@ -54,7 +54,7 @@ public class daoFactura {
                 f.setNombreCliente(rs.getString("nombreCliente"));
                 f.setApellidoCliente(rs.getString("apellidoCliente"));
                 f.setCantidadProductos(rs.getInt("cantidadProductos"));
-                f.setFecha(rs.getDate("fecha"));
+                f.setFecha(rs.getString("fecha"));
                 f.setTotal(rs.getDouble("total"));
                 lista.add(f);
             }
@@ -94,7 +94,7 @@ public class daoFactura {
             ps.setString(3, f.getNombreCliente());
             ps.setString(4, f.getApellidoCliente());
             ps.setInt(5, f.getCantidadProductos());
-            ps.setDate(6, f.getFecha());
+            ps.setString(6, f.getFecha());
             ps.setDouble(7, f.getTotal());
             ps.setInt(8, f.getCodigoFactura());
             ps.execute();

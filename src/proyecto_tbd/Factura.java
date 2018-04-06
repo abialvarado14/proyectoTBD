@@ -1,23 +1,22 @@
-
 package proyecto_tbd;
 
 import java.sql.Date;
 
-
 public class Factura {
+
     int codigoFactura;
     String usuario;
     int rtnCliente;
     String nombreCliente;
     String apellidoCliente;
     int cantidadProductos;
-    Date fecha;
+    String fecha;
     double total;
 
     public Factura() {
     }
 
-    public Factura(int codigoFactura, String usuario, int rtnCliente, String nombreCliente, String apellidoCliente, int cantidadProductos, Date fecha, double total) {
+    public Factura(int codigoFactura, String usuario, int rtnCliente, String nombreCliente, String apellidoCliente, int cantidadProductos, String fecha, double total) {
         this.codigoFactura = codigoFactura;
         this.usuario = usuario;
         this.rtnCliente = rtnCliente;
@@ -27,8 +26,6 @@ public class Factura {
         this.fecha = fecha;
         this.total = total;
     }
-    
-    
 
     public int getCodigoFactura() {
         return codigoFactura;
@@ -78,11 +75,11 @@ public class Factura {
         this.cantidadProductos = cantidadProductos;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -93,6 +90,5 @@ public class Factura {
     public void setTotal(double total) {
         this.total = total;
     }
-    
-    
+
 }

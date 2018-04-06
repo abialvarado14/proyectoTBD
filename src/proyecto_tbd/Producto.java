@@ -10,13 +10,13 @@ public class Producto {
     String categoria;
     float costo;
     String descripcion;
-    Date fechaExpiracion;
+    String fechaExpiracion;
     float precioVenta;
-
+    int cantidad;
     public Producto() {
     }
 
-    public Producto(int codigoProducto, int codigoProveedor, String categoria, float costo, String descripcion, Date fechaExpiracion, float precioVenta) {
+    public Producto(int codigoProducto, int codigoProveedor, String categoria, float costo, String descripcion, String fechaExpiracion, float precioVenta, int cantidad) {
         this.codigoProducto = codigoProducto;
         this.codigoProveedor = codigoProveedor;
         this.categoria = categoria;
@@ -24,6 +24,7 @@ public class Producto {
         this.descripcion = descripcion;
         this.fechaExpiracion = fechaExpiracion;
         this.precioVenta = precioVenta;
+        this.cantidad= cantidad;
     }
     
     
@@ -38,6 +39,14 @@ public class Producto {
 
     public int getCodigoProveedor() {
         return codigoProveedor;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public void setCodigoProveedor(int codigoProveedor) {
@@ -68,11 +77,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaExpiracion() {
+    public String getFechaExpiracion() {
         return fechaExpiracion;
     }
 
-    public void setFechaExpiracion(Date fechaExpiracion) {
+    public void setFechaExpiracion(String fechaExpiracion) {
         this.fechaExpiracion = fechaExpiracion;
     }
 
